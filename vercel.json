@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/filter.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/getPropertyDetails.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/filter",
+      "dest": "api/filter.js"
+    },
+    {
+      "src": "/api/getPropertyDetails",
+      "dest": "api/getPropertyDetails.js"
+    }
+  ]
+}

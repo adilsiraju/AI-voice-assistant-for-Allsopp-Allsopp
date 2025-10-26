@@ -1,0 +1,13 @@
+{
+  "name": "property-listings-api",
+  "version": "1.0.0",
+  "description": "Serverless API for filtering property listings",
+  "main": "api/filter.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
