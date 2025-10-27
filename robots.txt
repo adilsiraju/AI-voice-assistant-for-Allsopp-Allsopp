@@ -4,4 +4,4 @@ Allow: /
 User-agent: Voiceflow
 Allow: /
 
-Sitemap: https://ai-voice-assistant-for-allsopp-allsopp-gnjoibd20.vercel.app/sitemap.xml
+Sitemap: https://ai-voice-assistant-for-allsopp-alls.vercel.app/sitemap.xml

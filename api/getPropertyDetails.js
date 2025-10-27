@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = async (req, res) => {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
@@ -12,8 +12,34 @@ module.exports = async (req, res) => {
     return;
   }
 
+  // Handle GET requests (for crawlers/bots)
+  if (req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    return res.json({
+      message: "Property Search API for AI Voice Assistant",
+      description: "This API helps find properties based on area, budget, and type. Use POST requests with JSON body.",
+      usage: {
+        method: "POST",
+        contentType: "application/json",
+        body: {
+          area: "Dubai (optional)",
+          budget: "3000000 (optional, in AED)",
+          type: "apartment (optional)"
+        },
+        examples: [
+          { area: "Jumeirah" },
+          { budget: "2000000" },
+          { area: "Dubai Marina", budget: "5000000", type: "apartment" }
+        ]
+      },
+      sampleResponse: {
+        response: "SOL Levante in Jumeirah Village Triangle, starting at AED 736,000 – AED 3,000,000 AED. Jumeirah Residences in Emirates Towers, starting at AED 3,510,000 – AED 25,070,000 AED."
+      }
+    });
+  }
+
   if (req.method !== 'POST') {
-    res.status(405).json({ error: 'Method not allowed' });
+    res.status(405).json({ error: 'Method not allowed. Use POST for search or GET for documentation.' });
     return;
   }
 
