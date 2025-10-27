@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ai-voice-assistant-for-allsopp-allsopp.vercel.app/sitemap.xml
